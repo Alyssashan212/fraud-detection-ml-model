@@ -1,23 +1,25 @@
 # Fraud Detection Machine Learning Model
 
-This project demonstrates a machine learning system for detecting fraudulent financial transactions.
+This project demonstrates a machine learning system that detects fraudulent financial transactions.
 
-The model is trained using a Random Forest classifier and predicts whether a transaction is likely to be fraudulent based on transaction characteristics.
+The system trains a Random Forest classifier using transaction features such as amount, transaction frequency, and location risk.
 
 ## Features
 
-- Transaction amount
-- Transactions per day
-- Location risk score
+- Machine learning fraud detection model
+- Transaction risk prediction
+- Model evaluation metrics
+- REST API for fraud prediction
 
 ## Tech Stack
 
 Python  
 Scikit-learn  
 Pandas  
+FastAPI  
 Random Forest Classifier
 
-## How it works
+## System Architecture
 
 Transaction Data
 ↓
@@ -25,20 +27,32 @@ Feature Processing
 ↓
 Random Forest Model
 ↓
-Fraud Prediction
+Fraud Prediction API
 
-## Training the Model
-
-Run:
+## Training the model
 
 python train_model.py
 
-## Making Predictions
+## Run the API
 
-Run:
+uvicorn api:app --reload
 
-python predict.py
+Open API:
 
-## Example Output
+http://127.0.0.1:8000
 
-Fraud detected
+## Example API Request
+
+POST /predict
+
+{
+ "amount": 4500,
+ "transactions_per_day": 35,
+ "location_risk": 4
+}
+
+## Example Response
+
+{
+ "prediction": "Fraud detected"
+}
